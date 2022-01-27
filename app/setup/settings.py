@@ -1,13 +1,10 @@
 import os
 
 SECRET_KEY = 'mySecretKey' #os.environ.get('SECRET_KEY')
-SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+SQLALCHEMY_DATABASE_URI = 'sqlite:///db.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = False #os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 ADMIN_USERNAME = 'admin' #os.environ.get('ADMIN_USERNAME')
 ADMIN_PASSWORD = 'admin' #os.environ.get('ADMIN_PASSWORD')
-REDIS_HOST = os.environ.get('REDIS_HOST')
-REDIS_PORT = os.environ.get('REDIS_PORT')
-REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
 
 MAIL_SERVER = 'localhost' # os.environ.get('MAIL_SERVER')
 MAIL_PORT = 25 # int(os.environ.get('MAIL_PORT'))

@@ -1,11 +1,11 @@
 # ------- 3rd party imports -------
 from flask_sqlalchemy import SQLAlchemy
 import redis
-import app.app as a
+import os
 
 db = SQLAlchemy()
 redis = redis.Redis(
-  host=a.REDIS_HOST,
-  port=a.REDIS_PORT,
-  password=a.REDIS_PASSWORD
+  host=os.environ.get('ADMIN_USERNAME'),
+  port=os.environ.get('ADMIN_PORT'),
+  password=os.environ.get('ADMIN_PASSWORD')
 )
