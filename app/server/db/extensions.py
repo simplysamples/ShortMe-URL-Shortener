@@ -5,7 +5,7 @@ import os
 
 db = SQLAlchemy()
 redis = redis.Redis(
-  host=os.environ.get('ADMIN_USERNAME'),
-  port=os.environ.get('ADMIN_PORT'),
-  password=os.environ.get('ADMIN_PASSWORD')
+  host=os.environ.get('QOVERY_REDIS_ZBE8933FF_HOST'),
+  port=os.environ.get('QOVERY_REDIS_ZBE8933FF_PORT'),
+  password=os.environ.get('QOVERY_REDIS_ZBE8933FF_PASSWORD')
 )
