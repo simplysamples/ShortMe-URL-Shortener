@@ -8,6 +8,7 @@ from flask_restful import Resource, reqparse
 from app.server.db.extensions import db
 from app.server.api.api_auth import auth
 from app.server.db.models import Url, AuthToken
+from app.server.db.extensions import redis
 
 shorten_parser = reqparse.RequestParser()
 total_clicks_parser = reqparse.RequestParser()
@@ -84,6 +85,7 @@ class TotalClicks(Resource):
                 total=url.visits,
                 short_url=url.short_url,
                 original_url=url.original_url,
+                cached_total=redis.get(url.short_url),
                 success=True
             ), 200
 

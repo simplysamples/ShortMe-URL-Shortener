@@ -4,6 +4,7 @@ from flask import Blueprint, redirect, url_for
 # ------- local imports -------
 from app.server.db.models import Url
 from app.server.db.extensions import db
+from app.server.db.extensions import redis
 
 redirect_to_url_blueprint = Blueprint('redirect_to_url_blueprint', __name__)
 
@@ -17,6 +18,7 @@ def redirect_to_url(short_url):
     url = Url.query.filter_by(short_url=short_url).first()
 
     if url:
+        redis.incr(short_url)
         url.visits = url.visits + 1
         db.session.commit()
         return redirect(url.original_url)
